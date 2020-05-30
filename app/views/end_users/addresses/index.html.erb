@@ -1,0 +1,38 @@
+<div class="container">
+  <div class ="row">
+    <div>
+        <h2>配送先登録/一覧</h2>
+        <%= form_for(@address, url: end_users_addresses_path) do |f| %>
+            <h4>郵便番号</h4>
+            <p><%= f.text_area :postal_code %></p>
+            <h4>住所</h4>
+            <p><%= f.text_area :street_address %></p>
+            <h4>宛名</h4>
+            <p><%= f.text_area :address %></p>
+            <%= f.submit '登録する' %>
+        <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>郵便番号</th>
+                    <th>住所</th>
+                    <th>宛名</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @addresses.each do |address| %>
+                    <tr>
+                        <td><%= address.postalcode %></td>
+                        <td><%= address.street_address %></td>
+                        <td><%= address.address %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
