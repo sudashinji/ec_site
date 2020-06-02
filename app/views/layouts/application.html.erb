@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EcSite</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+
+      <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+          <%= link_to "LOGO", root_path %>
+        </div>
+        <div class="col-md-6" id="sidemenu">
+          <ul class="nav navbar-nav navbar-right">
+                <% if end_user_signed_in? %>
+        
+                  <li class="nav-item ">
+                    <%= link_to "my_page", mypage_end_user_path %>
+                  </li>
+                  <li class="nav-item ">
+                    <%= link_to "商品一覧", items_path %>
+                  </li>
+                  <li>
+                    <%= link_to "カート一覧", cart_items_path %>
+                  </li>
+                  <li class="nav-item ">
+                    <%= link_to "ログアウト", destroy_end_user_session_path, method: :delete %>
+                  </li>
+             
+                <% elsif admin_signed_in? %>
+     
+                  <li>
+                    <%= link_to "ジャンル登録", admins_genres_path %>
+                  </li>
+                  <li class="nav-item ">
+                     <%=link_to "商品一覧", admins_items_path %>
+                  </li>
+                  <li class="nav-item ">
+                    <%=link_to "会員一覧", admins_end_users_path %>
+                  </li>
+                  <li class="nav-item ">
+                    <%=link_to "商品登録", new_admins_item_path %>
+                  </li>
+                  <li class="nav-item ">
+                    <%=link_to "注文一覧", admins_orders_path %>
+                  </li>
+                  <li class="nav-item ">
+                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                  </li>
+                
+                <% else %>
+            
+                  <li class="nav-item ">
+                    <%= link_to "sign_up", new_end_user_registration_path %>
+                  </li>
+                  <li class="nav-item ">
+                    <%= link_to "log_in", new_end_user_session_path %>
+                  </li>
+                  <li class="nav-item ">
+                    <%= link_to "商品一覧", items_path %>
+                  </li>
+           
+                <% end %>
+              </ul>
+            </div>
+          </div>
+
+      </header>
+    <%= yield %>
+  </body>
+</html>

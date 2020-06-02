@@ -1,0 +1,44 @@
+<div class="container">
+    <%= form_for(current_end_user) do |f| %>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <h2>登録情報編集</h2>
+            <button class="btn btn-primary"><%= link_to "退会する", end_users_end_users_confirm_path %></button>
+        
+            <table class="table">
+                <tr>
+                    <td>氏名</td>
+                    <td><%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", placeholder: "姓" %> <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", placeholder: "名" %></td>
+                    
+                </tr>
+                <tr>
+                    <td>カナ</td>
+                    <td><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana", placeholder: "カナ姓" %> <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana", placeholder: "カナ名" %></td>
+                </tr>
+                <tr>
+                    <td>郵便番号</td>
+                    <td><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder: "郵便番号" %></td>
+                </tr>
+                <tr>
+                    <td>住所</td>
+                    <td><%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder: "住所" %></td>
+                </tr>
+                <tr>
+                    <td>電話番号</td>
+                    <td><%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", placeholder: "電話番号" %></td>
+                </tr>
+                <tr>
+                    <td>メールアドレス</td>
+                    <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メール" %></td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-3">
+            <span><%= f.submit "編集する", class: "btn btn-primary" %></span>
+        </div>
+    </div>
+    <% end %>
+</div>
