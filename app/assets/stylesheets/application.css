@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap-sprockets";  /*ここを追加*/
+ @import "bootstrap";            /*ここを追加*/
+
+*{
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.header{
+    width: 100%;
+    padding: 20px;
+    background-color: palevioletred;
+    	.navbar-left{
+
+	}	
+}
+a{
+    color:black;
+}
+.title{
+    background-color: #CCCCCC;
+    margin: 10px 0px 40px;
+}
+
+nav{
+	margin-bottom:10px;
+	font-family: 'Tahoma' ;
+}
+
+.navbar-brand{
+	color:white;
+}
+
+.nav-item{
+	margin-right:10px;
+}
+
+li .nav-item{
+	color:white;
+}

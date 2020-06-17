@@ -7,21 +7,19 @@
     <br>
     <div class="row">
         <div class= "col-md-5 col-md-offset-1">
-            <table>
-                <tbody>
+            
                 <%= form_for(@genre, url: admins_genres_path) do |genre| %>
                 
-                    <tr>
-                        <td>ジャンル</td>
-                        <td><%= genre.text_field :name %></td>
-                        <td><label><%= genre.radio_button :status, "有効" %>有効</label></td>
-                        <td><label><%= genre.radio_button :status, "無効" %>無効</label></td>
-                        <td>&nbsp;</td>
-                        <td><%= genre.submit "追加", class: "btn btn-primary" %></td>
-                    </tr>
+                    
+                        ジャンル
+                        <%= genre.text_field :name %>
+                        <label><%= genre.radio_button :status, "有効" %>有効</label>
+                        <label><%= genre.radio_button :status, "無効" %>無効</label>
+                        
+                        <%= genre.submit "追加", class: "btn btn-primary" %>
+                    
                 <% end %>
-                </tbody>
-            </table>
+            
         </div>
     </div>
     <div class="row">

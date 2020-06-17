@@ -10,15 +10,7 @@
   </head>
 
   <body>
-    <header>
-            <nav class="navbar navbar-expand-lg  bg-info">
-        <div class="container">
-          <a class="navbar-brand" href="#">長野CAKE</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-
+    <div class="header container">
       <div class="row">
         <div class="col-md-3 col-md-offset-1">
           <%= link_to "LOGO", root_path %>
@@ -33,7 +25,7 @@
                   <li class="nav-item ">
                     <%= link_to "商品一覧", items_path %>
                   </li>
-                  <li>
+                  <li class="nav-item">
                     <%= link_to "カート一覧", cart_items_path %>
                   </li>
                   <li class="nav-item ">
@@ -43,7 +35,7 @@
                 <% elsif admin_signed_in? %>
      
                   <li>
-                    <%= link_to "ジャンル登録", admins_genres_path %>
+                    <%= link_to "ジャンル一覧", admins_genres_path %>
                   </li>
                   <li class="nav-item ">
                      <%=link_to "商品一覧", admins_items_path %>
@@ -76,11 +68,11 @@
                 <% end %>
               </ul>
             </div>
-          </div>
-        </div>
-      </nav>
-
-      </header>
+  
+            </div>
+            </div>
+          
+            
     <%= yield %>
   </body>
 </html>
