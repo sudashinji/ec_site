@@ -7,9 +7,12 @@ Rails.application.routes.draw do
 
  get '/end_user/mypage'=> 'end_users/end_users#show', as: 'mypage_end_user'
   
- scope module: :end_users do
+    namespace :end_users do
+   
     get 'end_users/confirm'
-   resource :end_users,only: [:show, :edit, :update, :destroy]
+  end
+ scope module: :end_users do
+   resource :end_user,only: [:show, :edit, :update, :destroy]
    resources :items,only: [:index, :show]
    resources :addresses
    resources :cart_items do
@@ -27,14 +30,14 @@ Rails.application.routes.draw do
   end
 
   devise_for :admins,controllers: {
-  sessions:      'admins/sessions',
+  sessions:      'admin/sessions',
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
 }
 
  namespace :admins do
     resources :items,only: [:index, :new, :show, :edit, :create, :update, :destroy]
-    resources :genres, only:[:index, :edit, :create]
+    resources :genres
     resources :end_users
     resources :orders,only: [:index, :show, :update]
     resources :order_details,only: [:update]
