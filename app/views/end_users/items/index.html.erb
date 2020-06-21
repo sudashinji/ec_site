@@ -15,7 +15,7 @@
 					<td><%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg' %></td>
 					<td><%= item.name %></td>
 					<td>¥<%= item.price %></td>
-					<td><%= link_to "詳細", end_users_item_path(item.id) %></td>
+					<td><%= link_to "詳細", item_path(item.id) %></td>
 		    <% end %>
 		        </tr>
 
