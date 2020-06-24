@@ -23,7 +23,6 @@ class Admins::ItemsController < ApplicationController
         if @item.save
 		  redirect_to admins_item_path(@item)
 		else
-			@item = item
 			render :new
 		end
 	end
