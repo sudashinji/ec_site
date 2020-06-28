@@ -15,7 +15,7 @@ Item.create!(
 
 			name: 'ショートケーキ',
 			description: 'ショートケーキです',
-			genre_id: 'ケーキ',
+			genre_id: 0,
 			price: '1200',
 			status: '販売中',
 			image: open('./app/assets/images/ショートケーキ.jpg')
@@ -24,7 +24,7 @@ Item.create!(
 Item.create!(
 	        name: 'チョコレートケーキ',
 			description: 'チョコレートケーキです',
-			genre_id: 'ケーキ',
+			genre_id: 0,
 			price: '1200',
 			status: '販売中',
 			image: open('./app/assets/images/チョコケーキ.jpg')
@@ -33,7 +33,7 @@ Item.create!(
 Item.create!(
 	        name: 'モンブラン',
 			description: 'モンブランです',
-			genre_id: 'ケーキ',
+			genre_id: 0,
 			price: '1000',
 			status: '販売中',
 			image: open('./app/assets/images/モンブラン.jpg')
@@ -42,7 +42,7 @@ Item.create!(
 Item.create!(
 	        name: 'クッキー',
 	    	description: 'クッキーです',
-			genre_id: 'クッキー',
+			genre_id: 1,
 			price: '700',
 			status: '販売中',
 			image: open('./app/assets/images/クッキー.jpg')
@@ -51,7 +51,7 @@ Item.create!(
 Item.create!(
 	        name: 'プリン',
 	    	description: 'プリンです。',
-			genre_id: 'プリンゼリー',
+			genre_id: 2,
 			price: '600',
 			status: '販売中',
 			image: open('./app/assets/images/プリン.jpg')
@@ -60,7 +60,7 @@ Item.create!(
 Item.create!(
 	        name: 'イチゴ大福',
 	    	description: '苺大福です',
-	    	genre_id: '和菓子',
+	    	genre_id: 3,
 			price: '500',
 			status: '販売中',
 			image: open('./app/assets/images/苺大福.jpg')
