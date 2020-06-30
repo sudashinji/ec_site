@@ -20,12 +20,12 @@ class EndUsers::CartItemsController < ApplicationController
 			cart_item = CartItem.find(id)
 			sum = cart_item.amount.to_i + cart_item_params[:amount].to_i
 			cart_item.update_attributes(amount: sum)
-			redirect_to end_users_cart_items_path
+			redirect_to cart_items_path
 		else
 			cart_item = CartItem.new(cart_item_params)
 			cart_item.end_user_id = current_end_user.id
 			cart_item.save
-			redirect_to end_users_cart_items_path
+			redirect_to cart_items_path
 		end
 	end
 
@@ -38,12 +38,12 @@ class EndUsers::CartItemsController < ApplicationController
 	def destroy
 		cart_item = CartItem.find(params[:id])
 		cart_item.destroy
-		redirect_to end_users_cart_items_path
+		redirect_to cart_items_path
 	end
 
 	def destroy_all
 		CartItem.destroy_all
-		redirect_to end_users_cart_items_path
+		redirect_to cart_items_path
 	end
 
 
