@@ -8,7 +8,7 @@ class EndUsers::EndUsersController < ApplicationController
     def update
     	@end_user = EndUser.find(current_end_user.id)
 	   	if @end_user.update(end_user_params)
-	       redirect_to end_users_path
+	       redirect_to mypage_end_user_path
 	     else
 	      render :edit
 	    end
