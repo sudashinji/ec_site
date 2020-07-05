@@ -32,7 +32,7 @@ class EndUsers::OrdersController < ApplicationController
     order = Order.new(order_params)
     order.end_user_id = current_end_user.id
     order.save
-    redirect_to complete_path
+    redirect_to complete_orders_path
 
   end
 
@@ -44,10 +44,12 @@ class EndUsers::OrdersController < ApplicationController
       session[:order]["street_address"] = current_end_user.address
       session[:order]["address"] = current_end_user.last_name
 
-    elsif session[:order]["address_btn"] == 2
-      street_address = Address.where(street_address: session[:order]["street_address"])
-      session[:order]["postal_code"] = street_address[0].postal_code
-      session[:order]["address"] = street_address[0].address
+    
+    elsif params["address_btn"].to_i == 2
+      address = Address.find(params[:order][:address_info])
+      session[:order]["postal_code"] = address.postal_code
+      session[:order]["street_address"] = address.street_address
+      session[:order]["address"] = address.address
     else   
       address = Address.new(address_params)
       address.end_user_id = current_end_user.id
