@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>購入日時</th>
@@ -15,12 +15,12 @@
                 <tr>
                     <td><%= link_to order.created_at, admins_order_path(order.id) %></td>
                     <td><%= EndUser.with_deleted.find(order.end_user_id).last_name %></td>
-                    <% @total_amount = 0 %>
-                    <td><% order.order_details.each do |order_detail| %>
-                            <% @total_amount += order_detail.amount.to_i %>
-                          
+                    <td>
+                        <% total_amount = 0 %>
+                        <% order.order_details.each do |order_detail| %>
+                            <% total_amount += order_detail.amount %>
                         <% end %>
-                        <%= @total_amount %>
+                        <%= total_amount %>
                     </td>
                     <td><%= order.order_status %></td>
                 </tr>
