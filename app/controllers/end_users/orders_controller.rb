@@ -34,6 +34,15 @@ class EndUsers::OrdersController < ApplicationController
     order.save
     redirect_to complete_orders_path
 
+    current_end_user.cart_items.each do |cart_item|
+      order_detail = OrderDetail.new
+      order_detail.item_id = cart_item.item.id
+      order_detail.order_id = order.id
+      order_detail.amount = cart_item.amount
+      order_detail.purchase_price = cart_item.item.price
+      order_detail.save
+    end
+
   end
 
   def excreate
@@ -55,7 +64,7 @@ class EndUsers::OrdersController < ApplicationController
       address.end_user_id = current_end_user.id
       address.save
     end
-    redirect_to confirm_orders_path
+      redirect_to confirm_orders_path
 
   end
 

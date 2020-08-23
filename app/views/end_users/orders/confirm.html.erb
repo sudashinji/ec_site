@@ -74,7 +74,7 @@
             <%= f.hidden_field :postage, :value => @postage %>
             <%= f.hidden_field :address, :value => @order["address"] %>
             <%= f.hidden_field :street_address,:value => @order["street_address"] %>
-            <%= f.submit "購入を確定する",class: "btn btn-bg btn-primary" %>
+            <%= f.submit "購入を確定する", data: { confirm: 'Are you sure?' }, class: "btn btn-bg btn-primary" %>
         <% end %>
     </div>
 </div>

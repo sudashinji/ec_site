@@ -14,7 +14,7 @@
             <% @orders.each do |order| %>
                 <tr>
                     <td><%= link_to order.created_at, admins_order_path(order.id) %></td>
-                    <td><%= EndUser.with_deleted.find(order.end_user_id).last_name %></td>
+                    <td><%= order.end_user.last_name %><%= order.end_user.first_name %></td>
                     <td>
                         <% total_amount = 0 %>
                         <% order.order_details.each do |order_detail| %>
