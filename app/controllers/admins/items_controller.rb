@@ -2,6 +2,7 @@ class Admins::ItemsController < ApplicationController
 
 
   def index
+  	@search_items = @search.result
     @items = Item.all
   end
 
